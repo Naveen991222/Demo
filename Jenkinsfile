@@ -7,11 +7,11 @@ pipeline {
             }
             steps {
                 sh """
-                echo "Building Artifact from Master branch"
+                echo "Building Artifact from Main branch"
                 """
  
                 sh """
-                echo "Deploying Code from Master branch"
+                echo "Deploying Code from Main branch"
                 """
             }
         }
