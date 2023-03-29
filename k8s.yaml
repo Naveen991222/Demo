@@ -16,12 +16,9 @@ spec:
     spec:
       containers:
       - name: sample-app
-        image: <your-sample-app-image>
+        image: <node:14>
         ports:
         - containerPort: 80
-        env:
-        - name: DATABASE_URL
-          value: <your-database-url>
 ---
 apiVersion: v1
 kind: Service
