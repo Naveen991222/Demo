@@ -1,34 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample-app
+  name: eks-sample-deployment
+  namespace: eks-sample-app
   labels:
-    app: sample-app
+    app: eks-sample-app
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      app: sample-app
+      app: eks-sample-app
   template:
     metadata:
       labels:
-        app: sample-app
+        app: eks-sample-app
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
       containers:
-      - name: sample-app
-        image: <node:14>
+      - name: nginx
+        image: public.ecr.aws/nginx/nginx:1.21
         ports:
-        - containerPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: sample-app
-spec:
-  selector:
-    app: sample-app
-  ports:
-  - name: http
-    port: 80
-    targetPort: 80
-  type: LoadBalancer
+        - name: http
+          containerPort: 80
+        imagePullPolicy: IfNotPresent
+      nodeSelector:
+        kubernetes.io/os: linux
