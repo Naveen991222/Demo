@@ -1,28 +1,32 @@
 pipeline {
-  agent {
-    docker {
-      image 'node:14'
+    agent any
+    stages {
+        stage('Master Branch Deploy Code') {
+            when {
+                branch 'master'
+            }
+            steps {
+                sh """
+                echo "Building Artifact from Master branch"
+                """
+ 
+                sh """
+                echo "Deploying Code from Master branch"
+                """
+            }
+        }
+        stage('Develop Branch Deploy Code') {
+            when {
+                branch 'develop'
+            }
+            steps {
+                sh """
+                echo "Building Artifact from Develop branch"
+                """
+                sh """
+                echo "Deploying Code from Develop branch"
+                """
+           }
+        }
     }
-  }
-  stages {
-    stage('Build') {
-      steps {
-        sh 'npm install'
-        sh 'npm run build'
-        sh 'docker build -t my-app .'
-        sh 'docker tag my-app:latest my-registry/my-app:latest'
-        sh 'docker push my-registry/my-app:latest'
-      }
-    }
-    stage('Deploy') {
-      steps {
-        sh 'kubectl apply -f kubernetes-manifest.yaml'
-      }
-    }
-  }
 }
-
-
-
-
-
