@@ -7,18 +7,19 @@ pipeline {
             }
             steps {
                 sh """
-                   kubectl apply -f k8s.yaml
+                  sh "aws eks --region us-east-1 update-kubeconfig --region ${AWS_REGION} --name ${EKS_CLUSTER_NAME}"
+                  cd Demo/k8s.yaml  kubectl apply -f k8s.yaml
                 """
  
                 sh """
-                echo "Deploying Code from Main branch"
+                echo "Deploying Code from develop branch"
                 """
             }
         }
       stage('Docker Build') {
     	agent any
       steps {
-      	sh 'docker build -t naveen0515/node:latest .'
+      	sh 'cd Demo/Dockerfile  docker build -t naveen0515/node:latest .'
       }
     }
     stage('Docker Push') {
