@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Master Branch Deploy Code') {
+        stage('Main Branch Deploy Code') {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
                 sh """
