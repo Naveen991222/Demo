@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'kubectl apply -f kubernetes-manifest.yaml'
+        sh 'kubectl apply -f k8s.yaml'
       }
     }
   }
