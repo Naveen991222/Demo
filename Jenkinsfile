@@ -15,18 +15,13 @@ pipeline {
                 """
             }
         }
-        stage('main Branch Deploy Code') {
+        stage('Docker') {
             when {
                 branch 'main'
             }
             steps {
-                sh """
-                echo "Building Artifact from main branch"
-                """
-                sh """
-                echo "Deploying Code from main branch"
-                """
-           }
+      	sh 'docker build -t shanem/spring-petclinic:latest .'
+      }
         }
     }
 }
