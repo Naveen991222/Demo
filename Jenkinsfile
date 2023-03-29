@@ -15,14 +15,20 @@ pipeline {
                 """
             }
         }
-        stage('Docker') {
-            when {
-                branch 'main'
-            }
-            steps {
-      	sh 'docker build -t shanem/spring-petclinic:latest .'
+      stage('Docker Build') {
+    	agent any
+      steps {
+      	sh 'docker build -t naveen0515/node:latest .'
       }
+    }
+    stage('Docker Push') {
+    	agent any
+      steps {
+      	withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+          sh 'docker push Naveen0515/node:latest'
         }
+      }
     }
 }
 
