@@ -7,7 +7,7 @@ pipeline {
             }
             steps {
                 sh """
-                echo "Building Artifact from Main branch"
+                   kubectl apply -f k8s.yaml
                 """
  
                 sh """
