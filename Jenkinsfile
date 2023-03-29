@@ -9,9 +9,9 @@ pipeline {
       steps {
         sh 'npm install'
         sh 'npm run build'
-        sh 'docker build -t node:14 .'
-        sh 'docker tag my-app:latest my-registry/my-app:latest'
-        sh 'docker push my-registry/my-app:latest'
+        sh 'docker build -t node .'
+        sh 'docker tag node:latest my-registry/node:latest'
+        sh 'docker push my-registry/node:latest'
       }
     }
     stage('Deploy') {
