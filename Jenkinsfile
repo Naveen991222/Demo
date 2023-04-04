@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('develop Branch Deploy Code') {
+        stage('main Branch Deploy Code') {
             when {
                 branch 'develop'
             }
@@ -16,7 +16,7 @@ pipeline {
                 """
  
                 sh """
-                echo "Deploying Code from develop branch"
+                echo "Deploying Code from main branch"
                 """
             }
         }
