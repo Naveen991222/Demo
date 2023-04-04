@@ -9,7 +9,7 @@ pipeline {
                  withCredentials([file(credentialsId: 'elysium-uit-eks', Kubeconfigfile:'/home/ubuntu/.kube/config')]) {
                    sh 'mkdir -p ~/.kube'
                    sh 'cat $AWS_UIT_KUBECONFIG> ~/.kube/config'
-
+                 }
                 sh """
                   sh "aws eks --region ap-south-1 update-kubeconfig --region ${ap-south-1} --name ${elysium-uit-eks}"
                   cd Demo/k8s.yaml  kubectl apply -f k8s.yaml
