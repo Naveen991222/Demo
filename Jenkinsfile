@@ -7,7 +7,7 @@ pipeline {
             }
             steps {
                 sh """
-                  sh "aws eks --region us-east-1 update-kubeconfig --region ${AWS_REGION} --name ${EKS_CLUSTER_NAME}"
+                  sh "aws eks --region ap-south-1 update-kubeconfig --region ${ap-south-1} --name ${elysium-uit-eks}"
                   cd Demo/k8s.yaml  kubectl apply -f k8s.yaml
                 """
  
