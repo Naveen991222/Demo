@@ -1,10 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('main Branch Deploy Code') {
-            when {
-                branch 'develop'
-            }
+        stage('main Branch Deploy Code')
             steps {
                  withCredentials([file(credentialsId: 'elysium-uit-eks', Kubeconfigfile:'/home/ubuntu/.kube/config')]) {
                    sh 'mkdir -p ~/.kube'
