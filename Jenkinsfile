@@ -12,7 +12,7 @@ pipeline {
                  }
                 sh """
                   sh "aws eks --region ap-south-1 update-kubeconfig --region ${ap-south-1} --name ${elysium-uit-eks}"
-                  cd Demo/k8s.yaml  kubectl apply -f k8s.yaml
+                   k8s.yaml  kubectl apply -f k8s.yaml
                 """
  
                 sh """
@@ -23,7 +23,7 @@ pipeline {
       stage('Docker Build') {
     	agent any
       steps {
-      	sh 'cd Demo/Dockerfile  docker build -t naveen0515/node:latest .'
+      	sh 'Dockerfile  docker build -t naveen0515/node:latest .'
       }
     }
     stage('Docker Push') {
