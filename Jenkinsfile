@@ -6,7 +6,7 @@ pipeline {
                 branch 'develop'
             }
             steps {
-                 withCredentials([file(credentialsId: 'elysium-uit-eks', KUbeconfigfile:'/home/ubuntu/.kube/config')]) {
+                 withCredentials([file(credentialsId: 'elysium-uit-eks', Kubeconfigfile:'/home/ubuntu/.kube/config')]) {
                    sh 'mkdir -p ~/.kube'
                    sh 'cat $AWS_UIT_KUBECONFIG> ~/.kube/config'
 
