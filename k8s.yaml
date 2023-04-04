@@ -6,7 +6,7 @@ metadata:
   labels:
     app: eks-sample-app
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: eks-sample-app
