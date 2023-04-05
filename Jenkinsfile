@@ -3,6 +3,14 @@ pipeline {
     environment {
        KUBECONFIG = '/home/ubuntu/.kubeconfig'
   }
+  stage('Build') {
+         steps {
+            withCredentials([[
+               $class: 'AmazonWebServicesCredentialsBinding',
+               accessKeyVariable: 'AKIAWGOPPSWTFLOWGIEP',
+               secretKeyVariable: '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',
+               credentialsId: 'Awsuitcredential')
+                }
   stages {
     stage('Deploy to Kubernetes') {
       steps {
@@ -44,6 +52,8 @@ pipeline {
       }
     }
 }
+   } 
+  }
 
 
 
