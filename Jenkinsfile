@@ -28,7 +28,9 @@ pipeline {
                    sh 'kubectl apply -f k8s.yaml'
                    sh  'echo "Deploying Code from main branch'
             }
-     }
+     }       
+  } 
+}        
     // stage('Docker Build') {
       //   steps {
         //	sh 'Dockerfile  docker build -t naveen0515/node:latest',
@@ -41,6 +43,4 @@ pipeline {
            //sh 'docker push Naveen0515/node:latest'
         
        //}
-   //} 
-  }
-  }         
+   //}         
