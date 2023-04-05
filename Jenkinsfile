@@ -1,9 +1,20 @@
 pipeline {
     agent any
+    environment {
+       KUBECONFIG = '/home/ubuntu/.kubeconfig'
+  }
+  stages {
+    stage('Deploy to Kubernetes') {
+      steps {
+        kubernetesDeploy(
+          kubeconfigId: '',
+          configFilePath: env.KUBECONFIG,
+          namespace: 'my-namespace',
+          yamlPath: '/home/ubuntu/k8s.yaml'
     stages {
         stage('main Branch Deploy Code')
             steps {
-                 withCredentials([file(credentialsId: 'elysium-uit-eks', Kubeconfigfile:'/home/ubuntu/.kube/config')]) {
+                 withCredentials([file(credentialsId: 'elysium-uit-eks', Kubeconfigfile:'/home/ubuntu/.kubeconfig')]) {
                    sh 'mkdir -p ~/.kube'
                    sh 'cat $AWS_UIT_KUBECONFIG> ~/.kube/config'
                  }
