@@ -1,9 +1,6 @@
-pipeline{
+pipeline {
     agent any
-   // environment {
-   //    KUBECONFIG = '/home/ubuntu/.kubeconfig'
-  //  }
-   stages{  
+    stages {  
        stage('Build') {
            steps {
                withCredentials([[
@@ -12,7 +9,7 @@ pipeline{
                secretKeyVariable: '4dCOwZmHzvvqsLpL5kCzWvWYT0QkZVsYroMZco2l',
                credentialsId: 'kubeconfigfile']])
           }           
-    }
+      }
       stage('Deploy to Kubernetes') {
           steps {
               kubernetesDeploy(
@@ -22,7 +19,7 @@ pipeline{
               yamlPath: '/home/ubuntu/k8s.yaml',
           }       
       }
-      stage('main Branch Deploy Code'){
+      stage('main Branch Deploy Code') {
             steps {
                 withCredentials([file(credentialsId: 'elysium-uit-eks', Kubeconfigfile:'/home/ubuntu/.kubeconfig')]) {
                    sh 'mkdir -p ~/.kube'
@@ -45,4 +42,5 @@ pipeline{
         
        }
    } 
- }  
+  }
+  }         
