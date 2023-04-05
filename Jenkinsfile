@@ -10,7 +10,7 @@ pipeline {
           kubeconfigId: '',
           configFilePath: env.KUBECONFIG,
           namespace: 'my-namespace',
-          yamlPath: '/home/ubuntu/k8s.yaml'
+          yamlPath: '/home/ubuntu/k8s.yaml')
     stages {
         stage('main Branch Deploy Code')
             steps {
