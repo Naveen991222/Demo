@@ -9,14 +9,14 @@ pipeline {
                $class: 'AmazonWebServicesCredentialsBinding',
                accessKeyVariable: 'AKIAWGOPPSWTFLOWGIEP',
                secretKeyVariable: '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',
-                credentialsId: 'Awsuitcredential']])
+                credentialsId: 'kubeconfigfile']])
                 }
   stages {
     stage('Deploy to Kubernetes') {
       steps {
         kubernetesDeploy(
           kubeconfigId: '',
-          configFilePath: /home/ubuntu/.kube,
+          configFilePath: '/home/ubuntu/.kube',
           namespace: 'my-namespace',
           yamlPath: '/home/ubuntu/k8s.yaml')
     stages {
