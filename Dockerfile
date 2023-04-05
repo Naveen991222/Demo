@@ -1,7 +1,6 @@
-FROM node:14
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-EXPOSE 3000
-CMD [ "npm", "start" ]
+FROM ubuntu
+RUN apt update
+RUN apt install -y apache2
+RUN apt install -yapache2-utils
+EXPOSE 80
+CMD [ "apache", "start" ]
