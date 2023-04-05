@@ -10,6 +10,7 @@ pipeline {
                accessKeyVariable: 'AKIAWGOPPSWTFLOWGIEP',
                secretKeyVariable: '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',
                 credentialsId: 'kubeconfigfile']])
+                }           
                 }
   stages {
     stage('Deploy to Kubernetes') {
@@ -19,13 +20,14 @@ pipeline {
           configFilePath: '/home/ubuntu/.kube',
           namespace: 'my-namespace',
           yamlPath: '/home/ubuntu/k8s.yaml')
+      }
+    }
     stages {
         stage('main Branch Deploy Code')
             steps {
                  withCredentials([file(credentialsId: 'elysium-uit-eks', Kubeconfigfile:'/home/ubuntu/.kubeconfig')]) {
                    sh 'mkdir -p ~/.kube'
                    sh 'cat $AWS_UIT_KUBECONFIG> ~/.kube/config'
-                 }
                 sh """
                   sh "aws eks --region ap-south-1 update-kubeconfig --region ${ap-south-1} --name ${elysium-uit-eks}"
                    k8s.yaml  kubectl apply -f k8s.yaml
@@ -50,10 +52,5 @@ pipeline {
           sh 'docker push Naveen0515/node:latest'
         }
       }
-    }
-}
- }
-}
-}
-}    
+    }  
 
