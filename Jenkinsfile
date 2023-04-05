@@ -9,7 +9,7 @@ pipeline {
                $class: 'AmazonWebServicesCredentialsBinding',
                accessKeyVariable: 'AKIAWGOPPSWTFLOWGIEP',
                secretKeyVariable: '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',
-               credentialsId: 'Awsuitcredential')
+                credentialsId: 'Awsuitcredential']])
                 }
   stages {
     stage('Deploy to Kubernetes') {
