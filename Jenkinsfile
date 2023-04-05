@@ -20,7 +20,7 @@ pipeline{
               configFilePath: '/home/ubuntu/.kube',
               namespace: 'my-namespace',
               yamlPath: '/home/ubuntu/k8s.yaml',
-                  
+          }       
       }
       stage('main Branch Deploy Code'){
             steps {
@@ -35,7 +35,7 @@ pipeline{
      stage('Docker Build') {
          steps {
         	sh 'Dockerfile  docker build -t naveen0515/node:latest',
-      }
+         }
     }
     stage('Docker Push') {
         steps {
@@ -43,7 +43,6 @@ pipeline{
            sh 'docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}'
            sh 'docker push Naveen0515/node:latest'
         
-      }
-    } 
-  }
-}  
+       }
+   } 
+ }  
