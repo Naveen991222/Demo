@@ -16,7 +16,7 @@ pipeline {
       steps {
         kubernetesDeploy(
           kubeconfigId: '',
-          configFilePath: env.KUBECONFIG,
+          configFilePath: /home/ubuntu/.kube,
           namespace: 'my-namespace',
           yamlPath: '/home/ubuntu/k8s.yaml')
     stages {
@@ -55,4 +55,5 @@ pipeline {
  }
 }
 }
-
+}    
+}
