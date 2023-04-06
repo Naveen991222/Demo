@@ -1,5 +1,14 @@
 pipeline {
-    agent kubernetesuit {
+    agent {
+        kubernetes {
+            label 'my-pod'
+            containerTemplate {
+                name 'docker'
+                image 'docker:latest'
+                ttyEnabled true
+                command 'cat'
+            }
+        }
     }
     stages {
         stage('Docker Build') {
