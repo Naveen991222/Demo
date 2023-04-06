@@ -10,28 +10,29 @@ pipeline {
                     $class: 'AmazonWebServicesCredentialsBinding',
                     accessKeyVariable: 'AKIAWGOPPSWTFLOWGIEP',
                     secretKeyVariable: '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',
-                    credentialsId: 'kubeconfigfile'
+                    credentialsId: 'elysiumuit'
                 ]])
             }           
         }
         stage('Deploy to Kubernetes') {
             steps {
                 kubernetesDeploy(
-                    kubeconfigId: '',
-                    configFilePath: '/home/ubuntu/.kube',
-                    namespace: 'my-namespace',
+                    kubeconfigId: 'kube-configdemo',
+                    configFilePath: '/home/ubuntu/.kubeconfig',
+                    namespace: 'eks-sample-app',
                     yamlPath: '/home/ubuntu/k8s.yaml'
                 )
             }
         }
         stage('Docker Build') {
             steps {
-                sh 'docker build -t naveen0515/node:latest .'
+                dir('docker.Dockerfile')
+                sh 'docker build -t naveen0515/myimage:latest .'
             }
         }
         stage('Docker Push') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+                withCredentials([usernamePassword(credentialsId: 'Naveen515', passwordVariable: 'Naveen515', usernameVariable: 'Naveen@515')]) {
                     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
                     sh 'docker push naveen0515/node:latest'
                 }
