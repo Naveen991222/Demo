@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent kubernetesuit
     stages {
         stage('Docker Build') {
             steps {
