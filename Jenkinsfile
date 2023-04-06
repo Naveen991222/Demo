@@ -1,7 +1,21 @@
 pipeline {
-    agent none
-    environment {
-        KUBECONFIG = '/home/ubuntu/.kubeconfig'
+    agent {
+        kubernetes {
+            // Pod template specification
+            yaml """
+                apiVersion: v1
+                kind: Pod
+                metadata:
+                  labels:
+                    app: my-app
+                spec:
+                  containers:
+                  - name: maven
+                    image: maven:3.8.1-jdk-11
+                    command: ["cat"]
+                    tty: true
+            """
+        }
     }
     stages {  
         stage('Build') {
