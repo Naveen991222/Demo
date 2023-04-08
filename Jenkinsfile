@@ -49,12 +49,7 @@ pipeline {
         }
         stage('main Branch Deploy Code') {
             steps {
-                withCredentials([file(credentialsId: 'elysium-uit-eks', variable: 'Kubeconfigfile')]) {
-                    sh 'mkdir -p ~/.kube'
-                    sh 'cat $Kubeconfigfile > ~/.kube/config'
-                    sh "aws eks --region ap-south-1 update-kubeconfig --name elysium-uit-eks"
-                    sh 'kubectl apply -f k8s.yaml'
-                    sh 'echo "Deploying Code from main branch"'
+          
                 }
             }
         }
