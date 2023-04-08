@@ -25,12 +25,7 @@ pipeline {
         }
         stage('Deploy to Kubernetes') {
             steps {
-                kubernetesDeploy(
-                    kubeconfigId: 'kube-configdemo',
-                    configFilePath: '/home/ubuntu/.kubeconfig',
-                    namespace: 'eks-sample-app',
-                    yamlPath: '/home/ubuntu/k8s.yaml'
-                )
+              
             }
         }
         stage('Docker Build') {
