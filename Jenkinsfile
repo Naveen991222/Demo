@@ -20,8 +20,8 @@ pipeline {
         }
         stage('Docker Push') {
             steps {
-                sh 'docker login -u Naveen515 -p Naveen@515'
-                sh 'docker push naveen0515/myimage:latest'
+                sh 'docker login -
+                sh 'docker 
             }
         }
     }
