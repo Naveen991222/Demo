@@ -1,0 +1,66 @@
+Basic Commands:
+
+kubectl create: Create a resource from a YAML file or command-line flags.
+kubectl apply: Create or update a resource using a YAML file or command-line flags.
+kubectl get: Retrieve information about resources.
+kubectl describe: Show detailed information about a specific resource.
+kubectl delete: Delete one or more resources by name or with a YAML file.
+kubectl logs: Print the logs from a container in a pod.
+kubectl exec: Run a command in a container of a pod.
+kubectl port-forward: Forward one or more local ports to a pod.
+kubectl scale: Change the number of replicas for a deployment, statefulset, or replicaset.
+kubectl rollout: Manage rollouts of deployments or daemonsets.
+kubectl expose: Expose a deployment, service, or pod as a new service.
+Advanced Commands:
+
+kubectl label: Add or update labels on resources.
+kubectl annotate: Add or update annotations on resources.
+kubectl patch: Update specific fields of a resource.
+kubectl edit: Edit a resource using the default editor.
+kubectl get events: Retrieve events related to resources.
+kubectl top: Show resource usage statistics for pods or nodes.
+kubectl proxy: Create a proxy to the Kubernetes API server.
+kubectl taint: Taint a node with a key-value pair.
+kubectl drain: Evict all pods from a node to prepare for maintenance.
+kubectl cordon: Mark a node as unschedulable.
+kubectl uncordon: Mark a node as schedulable again.
+kubectl debug: Create a debugging pod based on an existing pod.
+kubectl auth: Manage user authentication and authorization.
+Cluster Operations:
+
+kubectl cluster-info: Display cluster information, including the Kubernetes API server URL.
+kubectl config: Manage kubeconfig files, including managing contexts and clusters.
+kubectl version: Show the Kubernetes client and server versions.
+Node Operations:
+
+kubectl get nodes: Retrieve information about nodes in the cluster.
+kubectl describe node <node-name>: Show detailed information about a specific node.
+kubectl drain <node-name>: Evict all pods from a node to prepare for maintenance.
+kubectl uncordon <node-name>: Mark a node as schedulable again after maintenance.
+Namespace Operations:
+
+kubectl create namespace <namespace-name>: Create a new namespace.
+kubectl get namespaces: List all namespaces in the cluster.
+kubectl describe namespace <namespace-name>: Show detailed information about a specific namespace.
+kubectl delete namespace <namespace-name>: Delete a namespace and all resources within it.
+Pod Operations:
+
+kubectl get pods: List all pods in the cluster.
+kubectl describe pod <pod-name>: Show detailed information about a specific pod.
+kubectl logs <pod-name>: Print the logs from a specific pod.
+kubectl exec -it <pod-name> -- <command>: Run a command in a specific pod interactively.
+Service Operations:
+
+kubectl get services: List all services in the cluster.
+kubectl describe service <service-name>: Show detailed information about a specific service.
+kubectl port-forward <pod-name> <local-port>:<remote-port>: Forward local ports to a pod.
+Secret Operations:
+
+kubectl create secret: Create a secret from literal values or files.
+kubectl get secrets: List all secrets in the cluster.
+kubectl describe secret <secret-name>: Show detailed information about a specific secret.
+ConfigMap Operations:
+
+kubectl create configmap: Create a ConfigMap from literal values, files, or directories.
+kubectl get configmaps: List all ConfigMaps in the cluster.
+kubectl describe configmap <configmap-name>: Show detailed information about a specific ConfigMap.
