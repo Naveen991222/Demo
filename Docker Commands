@@ -1,0 +1,85 @@
+Container Management:
+
+docker run: Create and start a new container.
+docker start: Start a stopped container.
+docker stop: Stop a running container.
+docker restart: Restart a container.
+docker pause: Pause processes in a running container.
+docker unpause: Unpause processes in a paused container.
+docker kill: Send a signal to stop a container.
+docker rm: Remove one or more containers.
+docker ps: List running containers.
+docker ps -a: List all containers, including stopped ones.
+docker logs: Fetch the logs of a container.
+docker exec: Run a command in a running container.
+docker attach: Attach to a running container.
+Image Management:
+
+docker pull: Download an image from a registry.
+docker push: Upload an image to a registry.
+docker build: Build an image from a Dockerfile.
+docker tag: Add a tag to an image.
+docker rmi: Remove one or more images.
+docker images: List available images on the local system.
+docker image prune: Remove unused images.
+docker image inspect: Display detailed information about an image.
+docker history: Show the history of an image.
+Registry Operations:
+
+docker login: Log in to a Docker registry.
+docker logout: Log out from a Docker registry.
+docker search: Search for an image on a Docker registry.
+Network and Volume Management:
+
+docker network create: Create a network for containers to communicate.
+docker network ls: List available networks.
+docker volume create: Create a volume for persistent data storage.
+docker volume ls: List available volumes.
+System and Info:
+
+docker info: Display system-wide information about Docker.
+docker version: Show the Docker version.
+docker system df: Show disk usage of Docker.
+Container Lifecycle:
+
+docker create: Create a new container (without starting it).
+docker pause: Pause processes in a running container.
+docker unpause: Unpause processes in a paused container.
+docker restart: Restart a container.
+docker attach: Attach to a running container and interact with its console.
+docker wait: Block until a container stops, and then print the exit code.
+docker kill: Send a signal to stop a container.
+docker stats: Display live stream resource usage statistics of containers.
+Container Inspection and Management:
+
+docker inspect: Display detailed information about a container.
+docker logs: Fetch the logs of a container.
+docker cp: Copy files/folders between a container and the local filesystem.
+docker rename: Rename a container.
+docker update: Update the configuration of one or more containers.
+docker exec: Run a command in a running container.
+docker top: Display the running processes in a container.
+Image Operations:
+
+docker save: Save one or more images to a tar archive.
+docker load: Load an image from a tar archive.
+docker export: Export the filesystem of a container as a tar archive.
+docker import: Import the contents of a tar archive to create a new filesystem image.
+docker history: Show the history of an image.
+docker inspect: Display detailed information about an image.
+docker tag: Add a tag to an image.
+Registry and Repository Operations:
+
+docker login: Log in to a Docker registry.
+docker logout: Log out from a Docker registry.
+docker push: Upload an image or a repository to a registry.
+docker pull: Download an image or a repository from a registry.
+docker search: Search for an image on a Docker registry.
+Docker Compose:
+
+docker-compose up: Create and start containers defined in a Docker Compose file.
+docker-compose down: Stop and remove containers defined in a Docker Compose file.
+docker-compose logs: Fetch the logs of containers defined in a Docker Compose file.
+docker-compose ps: List containers defined in a Docker Compose file and their status.
+docker-compose build: Build or rebuild services defined in a Docker Compose file.
+docker-compose run: Run a one-time command in a new container defined in a Docker Compose file.  
