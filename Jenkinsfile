@@ -19,12 +19,12 @@ pipeline {
     }
 parameters {
     string(defaultValue: "dev20", description: 'Please enter the tenant name', name: 'TENANT')
-    choice(choices: 'elysium-nonprod-mysql01-a.czuxw3bobnqm.us-east-2.rds.amazonaws.com\nelysium-prod-mysql01-a.cpclnvaimzvh.us-east-2.rds.amazonaws.com', description: 'Select the RDS/MySQL Host', name: 'DB_HOST')
-    string(defaultValue: "dev20_easaas10", description: 'Enter the DB Name for easaas', name: 'EASAAS10_DB_NAME')
-    string(defaultValue: "dev20_easaas20", description: 'Enter the DB Name for easaas', name: 'EASAAS20_DB_NAME')
-    string(defaultValue: "dev20_connector", description: 'Enter the DB Name for connector', name: 'CONNECTOR_DB_NAME')
-    string(defaultValue: "admin", description: 'Enter the DB User Name', name: 'DB_USER')
-    string(defaultValue: "lWsNI&aSPQuS", description: 'Enter the DB password', name: 'DB_PASSWORD')
+    choice(choices: 'nonprod-mysql01-a.czuxw3bobnqm.us-east-2.rds.amazonaws.com\ne-prod-mysql0h.us-east-2.rds.amazonaws.com', description: 'Select the RDS/MySQL Host', name: 'DB_HOST')
+    string(defaultValue: "dev20_10", description: 'Enter the DB Name for easaas', name: 'ES10_DB_NAME')
+    string(defaultValue: "dev20_e20", description: 'Enter the DB Name for easaas', name: 'EA20_DB_NAME')
+    string(defaultValue: "dev20_", description: 'Enter the DB Name for connector', name: 'CONNECTOR_DB_NAME')
+    string(defaultValue: "ad", description: 'Enter the DB User Name', name: 'DB_USER')
+    string(defaultValue: "", description: 'Enter the DB password', name: 'DB_PASSWORD')
     // password(name: 'DB_PASSWORD', defaultValue: 'SECRET', description: 'Enter the DB password')
     choice(choices: 'azure\namazon-prod-new\namazon-nonprod-new', description: 'Which Cloud/ENV ?', name: 'CLOUD')
     // booleanParam(defaultValue: false, description: 'Please select if you want to deploy MySQL', name: 'mysql')
